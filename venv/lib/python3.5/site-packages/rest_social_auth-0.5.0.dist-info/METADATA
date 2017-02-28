@@ -1,0 +1,27 @@
+Metadata-Version: 2.0
+Name: rest-social-auth
+Version: 0.5.0
+Summary: Django rest framework resources for social auth
+Home-page: https://github.com/st4lk/django-rest-social-auth
+Author: st4lk
+Author-email: alexevseev@gmail.com
+License: BSD License
+Keywords: django,social,auth,rest,login,signin,signup,oauth
+Platform: Any
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Utilities
+Requires-Dist: django (<1.10,>=1.6)
+Requires-Dist: djangorestframework (<4.0)
+Requires-Dist: python-social-auth (>=0.2.19)
+
+
+
+

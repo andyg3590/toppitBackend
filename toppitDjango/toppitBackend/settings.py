@@ -37,7 +37,34 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'rest_framework_docs',
+    'toppitBackend',
+    'restapi',
+    'rest_framework.authtoken',
+    'guardian',
+    'crispy_forms',
+    'oauth2_provider',
+    'social.apps.django_app.default',
+    'rest_framework_social_oauth2',   
+    'rest_social_auth',
+    'corsheaders',   
 ]
+
+AUTHENTICATION_BACKENDS = (
+
+    # For the Django-Social Auth
+    'rest_framework_social_oauth2.backends.DjangoOAuth2',
+
+    # Guardian object specific permissions
+    'guardian.backends.ObjectPermissionBackend',
+
+    # Google OAuth2
+    'social.backends.google.GoogleOAuth2',
+
+    'django.contrib.auth.backends.ModelBackend', # this is default
+
+)
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
@@ -49,6 +76,21 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ('rest_framework.filters.DjangoFilterBackend',),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        #'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+        'oauth2_provider.ext.rest_framework.OAuth2Authentication',
+        'rest_framework_social_oauth2.authentication.SocialAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    #'PAGE_SIZE': 10
+}
 
 ROOT_URLCONF = 'toppitBackend.urls'
 
